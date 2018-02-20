@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<!-- this file should contains only jsf manager beans and properties declaration -->
+	<!-- <bean id="posizoniMB" class="it.capgemini.pon.manager.bean.PosizioniMB" scope="session"></bean> <bean id="PagamentiInviatiMB" class="it.capgemini.pon.manager.bean.PagamentiInviatiMB" 
+		scope="request"></bean> -->
+
+	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+		<property name="scopes">
+			<map>
+				<entry key="view">
+					<bean class="org.primefaces.spring.scope.ViewScope" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<context:annotation-config />
+	<context:component-scan base-package="it.capgemini.view.controller" />
+</beans>

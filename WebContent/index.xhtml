@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="templates/template.xhtml">
+
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+
+
+    <p:dataTable id="basicDT" var="cliente" value="#{clientiMB.tuttiClienti}" style="width:50%">
+        <f:facet name="header">
+            Clienti
+        </f:facet>
+        <p:column headerText="Nome">
+            <h:outputText value="#{cliente.nome}" />
+        </p:column>
+        <p:column headerText="Cognome">
+            <h:outputText value="#{cliente.cognome}" />
+        </p:column>
+        
+        <p:column style="width:32px;text-align: center">
+        <!-- 
+             <p:commandButton update=":form:carDetail" oncomplete="PF('carDialog').show()" icon="ui-icon-search" title="View">
+                <f:setPropertyActionListener value="#{car}" target="#{dtSelectionView.selectedCar}" />
+            </p:commandButton>
+             -->
+        </p:column>
+    </p:dataTable>
+
+
+
+
+		<h:commandButton action="#{clientiMB.addCustomer}" value="Aggiungi" />
+
+
+	</ui:define>
+</ui:composition>
+
+
+
